@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Commercial Outreach Studio · Home Alliance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" />
+<style>
+:root{--bg0:#050821;--line:rgba(140,160,255,.16);--line2:rgba(140,160,255,.28);--glass:rgba(20,30,95,.55);--txt:#eef1ff;--mut:#9aa6d8;--mut2:#6f7bb0;--vi:#7b6cff;--bl:#4fc3ff;--gr:#2fe07a;--ye:#ffc23a;--re:#ff5a5a;--gold:#FFB800;--r:16px}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--txt);color-scheme:dark;font-size:14px;line-height:1.45;background:radial-gradient(1200px 700px at 70% -10%,#1b2a9a55,transparent),radial-gradient(900px 600px at 0% 100%,#3a1fa033,transparent),linear-gradient(160deg,#060a2a,#0b1350 60%,#0a0f3a);background-attachment:fixed;display:grid;grid-template-columns:84px 1fr;overflow:hidden}
+h1,h2,h3,h4{font-family:'Plus Jakarta Sans','Inter',sans-serif;letter-spacing:-.02em}
+button,input,select,textarea{font:inherit;color:inherit}
+/* sidebar */
+aside{background:linear-gradient(180deg,#0a1250,#070c36);border-right:1px solid var(--line);display:flex;flex-direction:column;align-items:center;padding:14px 0;gap:6px;height:100vh;overflow:auto}
+.logo{width:46px;height:46px;border-radius:14px;background:linear-gradient(145deg,#a99dff,#5b4bff 60%,#3a2bb8);display:grid;place-items:center;box-shadow:0 8px 24px -6px #6a5bff,inset 0 1px 0 #fff6;font-weight:800;font-size:15px}
+.logo-t{font-size:9px;font-weight:800;letter-spacing:.14em;color:#c9c3ff;margin:4px 0 8px;text-align:center;line-height:1.3}
+.nav-sec{font-size:8.5px;font-weight:800;letter-spacing:.12em;color:#8f86ff;margin:10px 0 2px;text-transform:uppercase}
+#tabs{display:flex;flex-direction:column;gap:4px;align-items:center}
+.nav-item{width:68px;padding:8px 2px 7px;border:0;border-radius:12px;background:transparent;color:#b9c2ee;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;font-weight:600;cursor:pointer;text-align:center;line-height:1.15}
+.nav-item .ic{font-size:18px;line-height:1;filter:saturate(.2) brightness(1.4)}
+.nav-item:hover{background:rgba(255,255,255,.06)}
+.nav-item.on{background:linear-gradient(180deg,#4a3ee0,#3527b5);color:#fff;box-shadow:0 3px 0 #20166e,0 8px 20px -8px #5b4bff}
+.nav-item.on .ic{filter:none}
+.ha{margin-top:auto;font-size:9px;color:var(--mut2);text-align:center;line-height:1.3}
+.ha b{display:block;color:var(--gold);font-size:10px}
+/* main */
+main{height:100vh;overflow:auto;position:relative}
+.view{display:none;padding:26px 30px 60px;max-width:1300px;margin:0 auto}.view.on{display:block}
+.view.full{max-width:none;padding:0;height:100vh}
+.page-top{display:flex;align-items:flex-end;gap:12px;margin-bottom:6px}
+.eyebrow{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);font-weight:700}
+h2{font-size:28px;margin:2px 0 4px;font-weight:800}
+h3{font-size:15px;margin:0 0 10px;color:#dfe4ff}
+.lead{color:var(--mut);margin:0 0 20px;max-width:780px;font-size:13.5px}
+.pill{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:99px;font-size:11px;font-weight:700;background:rgba(255,255,255,.08);color:#cfd6ff}
+.pill.gold{background:#ffc23a22;color:var(--ye)}.pill.ok{background:#2fe07a22;color:var(--gr)}.pill.bad{background:#ff5a5a22;color:#ff8c8c}.pill.ind{background:#7b6cff33;color:#c9c3ff}
+.grid{display:grid;gap:14px}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g5{grid-template-columns:repeat(5,1fr)}.g2{grid-template-columns:1fr 1fr}
+.card{background:var(--glass);border:1px solid var(--line);border-radius:var(--r);padding:16px;backdrop-filter:blur(8px)}
+.stat{background:linear-gradient(180deg,rgba(40,56,170,.5),rgba(20,28,100,.5))}
+.stat b{display:block;font-family:'Plus Jakarta Sans';font-size:26px;font-weight:800;line-height:1.15;margin-top:4px}
+.stat span{color:var(--mut);font-size:12px}
+.tag{font-size:10.5px;font-weight:700;letter-spacing:.12em;color:var(--mut);text-transform:uppercase}
+.hero{background:linear-gradient(120deg,#3a2bb8,#5b4bff 55%,#2b6fd6);border-radius:var(--r);padding:22px 24px;margin-bottom:16px;display:flex;gap:24px;align-items:center;box-shadow:0 20px 50px -25px #6a5bff}
+.hero h2{font-size:21px;margin:0}.hero p{margin:6px 0 0;color:#e0e4ff;max-width:720px}
+.hero .verdict{background:var(--gold);color:#1d2544;font-weight:800;border-radius:12px;padding:12px 16px;font-size:14.5px;white-space:nowrap;box-shadow:0 4px 0 #a87800}
+.steps{display:flex;gap:8px;align-items:stretch}
+.step{flex:1;background:rgba(5,9,40,.5);border:1px solid var(--line);border-radius:12px;padding:12px}
+.step .n{width:24px;height:24px;border-radius:50%;background:linear-gradient(180deg,#8d80ff,#5b4bff);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:800;margin-bottom:6px}
+.step.key{border:1.5px solid var(--gold);background:#ffb80014}
+.step b{display:block;font-size:13.5px}.step span{font-size:12px;color:var(--mut)}
+.arrow{align-self:center;color:var(--mut2);font-weight:700}
+.phase{border-left:3px solid var(--vi);padding:6px 0 6px 12px;margin-bottom:10px}
+.phase b{display:block}.phase span{font-size:12.5px;color:var(--mut)}.phase em{font-style:normal;font-size:12px;color:#8fb2ff;font-weight:600}
+.role{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line)}
+.role:first-of-type{border-top:0}
+.role .ic{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.07);display:grid;place-items:center;font-size:16px;font-weight:800;flex:none}
+.role b{display:block;font-size:13.5px}.role span{font-size:12.5px;color:var(--mut)}
+.btn{border:0;border-radius:12px;padding:9px 15px;cursor:pointer;font-weight:700;font-size:13px;background:rgba(255,255,255,.08);color:#eef1ff;box-shadow:0 3px 0 rgba(0,0,0,.35)}
+.btn:hover{background:rgba(255,255,255,.13)}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.35)}
+.btn.pri{background:linear-gradient(180deg,#8d80ff,#5b4bff);box-shadow:0 3px 0 #2e2290,0 8px 20px -8px #6a5bff}
+.btn.gold{background:linear-gradient(180deg,#ffd45a,#ffb800);color:#1d2544;box-shadow:0 3px 0 #a87800}
+.btn.sm{padding:6px 11px;font-size:12px;border-radius:10px}
+.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.bar .sp{flex:1}
+.inp{width:100%;background:rgba(5,9,40,.7);border:1px solid var(--line2);border-radius:10px;padding:9px 11px;outline:none}
+.inp:focus{border-color:var(--vi);box-shadow:0 0 0 3px #7b6cff33}
+select.inp option{background:#0b1350}
+.bar .inp{width:auto}
+.board{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;align-items:start}
+.col{background:rgba(5,9,40,.45);border:1px solid var(--line);border-radius:var(--r);padding:10px;min-height:200px}
+.col h4{margin:2px 4px 10px;font-size:12.5px;display:flex;justify-content:space-between;color:#cfd6ff}
+.pc{background:linear-gradient(180deg,rgba(40,56,170,.45),rgba(20,28,100,.45));border-radius:12px;padding:10px 11px;margin-bottom:8px;border:1px solid var(--line);cursor:pointer;transition:.15s}
+.pc:hover{border-color:var(--line2);transform:translateY(-1px)}
+.pc b{font-size:13.5px;display:block}
+.pc .who{font-size:12px;color:var(--mut)}
+.pc .row{display:flex;gap:6px;align-items:center;margin-top:7px;flex-wrap:wrap}
+.score{font-weight:800;font-size:11.5px;border-radius:7px;padding:2px 7px}
+.hot{background:#ff5a5a26;color:#ff8c8c}.warm{background:#ffc23a26;color:var(--ye)}.cold{background:rgba(255,255,255,.08);color:var(--mut)}
+.dmflag{font-size:11.5px;color:#ff8c8c;font-weight:600}
+.due{font-size:11.5px;color:var(--mut)}.due.late{color:#ff8c8c;font-weight:700}
+.ov{position:fixed;inset:0;background:rgba(3,5,25,.6);backdrop-filter:blur(4px);display:none;align-items:flex-start;justify-content:center;padding:40px 16px;overflow:auto;z-index:20}
+.ov.on{display:flex}
+.modal{background:linear-gradient(180deg,#121a63,#0b1145);border:1px solid var(--line2);border-radius:18px;width:min(720px,100%);padding:20px 22px;box-shadow:0 30px 80px -20px #000}
+.modal h3{font-size:18px;margin-bottom:2px;color:#fff}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.fg label{font-size:12px;color:var(--mut);font-weight:600;display:flex;flex-direction:column;gap:4px}
+.fg .full{grid-column:1/-1}
+.foot{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap}
+.foot .sp{flex:1}
+.log{max-height:180px;overflow:auto;border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:12.5px;margin-top:6px;background:rgba(5,9,40,.5)}
+.log div{padding:3px 0;border-bottom:1px dashed var(--line)}.log div:last-child{border:0}
+.hint{background:#ffc23a14;border:1px solid #ffc23a44;border-radius:10px;padding:10px 12px;font-size:12.5px;margin-top:12px;color:#ffe7a8}
+.msgwrap{display:grid;grid-template-columns:320px 1fr;gap:16px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:0;background:rgba(255,255,255,.07);color:#cfd6ff;border-radius:99px;padding:6px 12px;font-size:12px;cursor:pointer;font-weight:600}
+.chip.on{background:linear-gradient(180deg,#6a5cff,#4b3cdc);color:#fff}
+textarea.inp{min-height:280px;resize:vertical;line-height:1.55}
+.fun{display:flex;flex-direction:column;gap:10px}
+.fstage{display:grid;grid-template-columns:200px 1fr 120px;gap:10px;align-items:center}
+.fstage .lbl{font-size:13px;text-align:right;color:#cfd6ff}
+.fstage .fill{height:30px;border-radius:8px;background:rgba(140,160,255,.25);min-width:4px}
+.fstage.key .fill{background:linear-gradient(90deg,#5b4bff,#8d80ff);box-shadow:0 0 18px -4px #7b6cff}
+.fstage .v{font-weight:800;font-family:'Plus Jakarta Sans'}.fstage .v small{display:block;color:var(--mut);font-weight:500;font-size:11.5px;font-family:Inter}
+.slider label{display:flex;justify-content:space-between;font-size:12.5px;font-weight:600;margin-top:12px;color:#cfd6ff}
+.slider input{width:100%;accent-color:var(--vi)}
+.gate{display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--line);font-size:13px}
+.gate:first-child{border:0}
+.note{font-size:11.5px;color:var(--mut2);margin-top:10px}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:linear-gradient(180deg,#8d80ff,#5b4bff);color:#fff;padding:10px 16px;border-radius:12px;font-weight:700;opacity:0;transition:.25s;pointer-events:none;z-index:30}
+.toast.on{opacity:1}
+.toolbar{display:flex;align-items:center;gap:12px;padding:12px 18px;border-bottom:1px solid var(--line);background:rgba(5,9,40,.6);backdrop-filter:blur(8px)}
+.toolbar b{font-family:'Plus Jakarta Sans';font-size:15px}
+.toolbar .sp{flex:1}
+#toolFrame{width:100%;height:calc(100vh - 59px);border:0;display:block;background:#050821}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:rgba(140,160,255,.25);border-radius:10px}
+@media(max-width:980px){body{grid-template-columns:1fr}aside{flex-direction:row;height:auto;overflow-x:auto;padding:8px}#tabs{flex-direction:row}.logo-t,.nav-sec,.ha{display:none}main{height:calc(100vh - 70px)}.g3,.g4,.g5,.g2,.board,.msgwrap{grid-template-columns:1fr}.steps{flex-direction:column}.arrow{display:none}.hero{flex-direction:column;align-items:flex-start}.fstage{grid-template-columns:1fr}.fstage .lbl{text-align:left}#toolFrame{height:calc(100vh - 130px)}}
+</style>
+</head>
+<body>
+<aside>
+  <div class="logo">◆</div><div class="logo-t">OUTREACH<br>STUDIO</div>
+  <div class="nav-sec">Plan</div>
+  <nav id="tabs">
+    <button class="nav-item on" data-v="plan"><span class="ic">📋</span>The plan</button>
+    <button class="nav-item" data-v="prospects"><span class="ic">🎯</span>Decision makers</button>
+    <button class="nav-item" data-v="messages"><span class="ic">✉️</span>Messages</button>
+    <button class="nav-item" data-v="funnel"><span class="ic">📈</span>Funnel</button>
+    <button class="nav-item" data-v="tool"><span class="ic">🏢</span>Tool</button>
+  </nav>
+  <div class="ha"><b>Home Alliance</b>Commercial pilot<br>example data</div>
+</aside>
+
+<main>
+<!-- ================= PLAN ================= -->
+<section class="view on" id="v-plan">
+  <div class="eyebrow">Commercial lead magnet · pilot</div><h2 style="margin-bottom:14px">📋 The plan <span class="pill gold" style="vertical-align:middle;font-family:Inter">Example data · saved in this browser</span></h2>
+  <div class="hero">
+    <div><h2>Give managers a free maintenance hub. Our techs fill it. The decision maker claims it.</h2>
+    <p>Skip the leasing and finance screens. Lead with what our technicians can capture on every visit: equipment, condition, service history and due dates.</p></div>
+    <div class="verdict">✅ Good lead magnet,<br>maintenance-only</div>
+  </div>
+
+  <div class="grid g4" style="margin-bottom:16px">
+    <div class="card stat"><span class="tag">US commercial buildings</span><b>5.9M</b><span>96 billion sq ft · EIA CBECS 2018</span></div>
+    <div class="card stat"><span class="tag">Under 10,000 sq ft</span><b>71%</b><span>The size our techs already work in</span></div>
+    <div class="card stat"><span class="tag">Small leased buildings</span><b>1.36M</b><span>≤ 25k sq ft, run by PM firms · priority 1</span></div>
+    <div class="card stat"><span class="tag">Property-mgmt businesses</span><b>335K</b><span>IBISWorld 2025 · ~66K commercial-only (secondary)</span></div>
+  </div>
+
+  <div class="card" style="margin-bottom:16px">
+    <h3>How the loop works</h3>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><b>Tech visit</b><span>Fixes the job, logs the building in 5–10 min</span></div><div class="arrow">→</div>
+      <div class="step"><div class="n">2</div><b>Building profile</b><span>Nameplates, photos, condition, next service date</span></div><div class="arrow">→</div>
+      <div class="step key"><div class="n">3</div><b>Decision maker claims</b><span>“Your building report is ready” by text + email</span></div><div class="arrow">→</div>
+      <div class="step"><div class="n">4</div><b>Free portal</b><span>Adds the rest of their buildings</span></div><div class="arrow">→</div>
+      <div class="step"><div class="n">5</div><b>One-tap booking</b><span>Due dates become booked jobs → back to step 1</span></div>
+    </div>
+  </div>
+
+  <div class="grid g3">
+    <div class="card"><h3>🎯 Who decides (and who doesn't)</h3>
+      <div class="role"><div class="ic">👑</div><div><b>Building owner</b><span>Signs off on vendors and capital spend. Highest authority, usually one site.</span></div></div>
+      <div class="role"><div class="ic">🗂️</div><div><b>Portfolio / regional maintenance manager</b><span>Sets the approved-vendor list across many sites. Best target in PM firms.</span></div></div>
+      <div class="role"><div class="ic">🏢</div><div><b>Property manager</b><span>Picks vendors day to day for their buildings; can sign small jobs.</span></div></div>
+      <div class="role"><div class="ic">🧰</div><div><b>Facilities coordinator</b><span>Influencer: books jobs, knows who decides. Ask them for the name.</span></div></div>
+      <div class="role"><div class="ic">🙋</div><div><b>Tenant / on-site staff</b><span>Not a buyer. Get the manager's contact and move on.</span></div></div>
+    </div>
+    <div class="card"><h3>🗺️ Rollout · one metro first</h3>
+      <div class="phase"><b>Weeks 0–6 · Build the minimum</b><span>Tech capture step, hosted portal, claim link, consent terms</span><br><em>Gate: 20 profiles in under 10 min each</em></div>
+      <div class="phase"><b>Weeks 7–12 · Warm pilot</b><span>Techs profile every commercial or landlord site they visit</span><br><em>Gate: 30% of profiles claimed</em></div>
+      <div class="phase"><b>Weeks 13–20 · Add outbound</b><span>PM-firm sequences, IREM/BOMA chapters, webinar, free audit</span><br><em>Gate: cost per claimed building on target</em></div>
+      <div class="phase"><b>Week 21+ · Scale</b><span>Second metro and a paid preventive-maintenance plan</span></div>
+    </div>
+    <div class="card"><h3>🏷️ Who to target first</h3>
+      <div class="role"><div class="ic">1</div><div><b>Landlords & PMs we already serve</b><span>Warm, techs already on site. Pull the count from the CRM.</span></div></div>
+      <div class="role"><div class="ic">1</div><div><b>Small leased buildings (≤ 25k sq ft)</b><span>Strip retail, small offices, flex. 1.36M nationally.</span></div></div>
+      <div class="role"><div class="ic">2</div><div><b>Owner-occupied small businesses</b><span>2.91M buildings; one site each.</span></div></div>
+      <div class="role"><div class="ic">3</div><div><b>Restaurants & food service</b><span>286K; commercial kitchens need other skills.</span></div></div>
+      <div class="role"><div class="ic">✕</div><div><b>Skip: Class A, big industrial</b><span>In-house engineers and RFP vendor lists.</span></div></div>
+    </div>
+  </div>
+  <p class="note">Market numbers are from EIA CBECS 2018 (latest published) and IBISWorld 2025. Rollout gates, rates and timings are hypotheses to test in the pilot.</p>
+</section>
+
+<!-- ================= PROSPECTS ================= -->
+<section class="view" id="v-prospects">
+  <div class="eyebrow">Outreach · pipeline</div><h2>🎯 Decision-maker pipeline</h2>
+  <p class="lead">Every card is a building contact. The score says how close they are to the person who can say yes. Red flags mean you're talking to an influencer, so find the decision maker next.</p>
+  <div class="bar">
+    <input class="inp" id="q" placeholder="Search company, name, metro…" style="min-width:240px" />
+    <select class="inp" id="fMetro"></select>
+    <select class="inp" id="fSeg"></select>
+    <label style="font-size:12.5px;display:flex;gap:6px;align-items:center"><input type="checkbox" id="fDue" /> Due today or late</label>
+    <span class="sp"></span>
+    <button class="btn" id="exp">⬇ Export CSV</button>
+    <button class="btn pri" id="add">+ Add contact</button>
+  </div>
+  <div class="grid g5" id="kpis" style="margin-bottom:14px"></div>
+  <div class="board" id="board"></div>
+</section>
+
+<!-- ================= MESSAGES ================= -->
+<section class="view" id="v-messages">
+  <div class="eyebrow">Outreach · sequences</div><h2>✉️ Message builder</h2>
+  <p class="lead">Pick a contact, a channel and a touch. The message fills in their name, building and the next service date. Edit it, copy it, then log it as sent.</p>
+  <div class="msgwrap">
+    <div class="card">
+      <h3>1 · Contact</h3>
+      <select class="inp" id="mP"></select>
+      <h3 style="margin-top:16px">2 · Channel</h3>
+      <div class="chips" id="mCh"></div>
+      <h3 style="margin-top:16px">3 · Touch</h3>
+      <div class="chips" id="mT"></div>
+      <div class="hint" id="mHint"></div>
+    </div>
+    <div class="card">
+      <div class="bar" style="margin-bottom:8px"><h3 style="margin:0" id="mTitle">Message</h3><span class="sp"></span><button class="btn sm" id="mCopy">📋 Copy</button><button class="btn sm gold" id="mLog">✔ Log as sent</button></div>
+      <input class="inp" id="mSubj" placeholder="Subject" style="margin-bottom:8px" />
+      <textarea class="inp" id="mBody"></textarea>
+      <p class="note">Merge fields fill in automatically. Keep it short: managers read these on their phones between site visits.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FUNNEL ================= -->
+<section class="view" id="v-funnel">
+  <div class="eyebrow">Outreach · pilot model</div><h2>📈 Funnel calculator</h2>
+  <p class="lead">Move the sliders to see what a 90-day pilot in one metro could produce. Every default is a hypothesis to test; replace the dollar figures with our real averages.</p>
+  <div class="grid g2" style="grid-template-columns:1fr 340px">
+    <div class="card"><h3 id="fTitle">Pilot funnel</h3><div class="fun" id="fun"></div>
+      <div class="grid g3" style="margin-top:16px" id="fMoney"></div></div>
+    <div class="card">
+      <h3>Assumptions</h3>
+      <div class="slider" id="sliders"></div>
+      <h3 style="margin-top:18px">Go / no-go gates</h3>
+      <div id="gates"></div>
+    </div>
+  </div>
+</section>
+<!-- ================= TOOL ================= -->
+<section class="view full" id="v-tool">
+  <div class="toolbar"><span style="font-size:20px">🏢</span><div><b>Prisma commercial pilot</b><div class="due">The free maintenance hub a decision maker claims. Click around: it's the demo to show prospects.</div></div><span class="sp"></span><button class="btn sm" id="toolReload">↻ Reload</button><button class="btn sm pri" id="toolFull">⛶ Full screen</button></div>
+  <iframe id="toolFrame" title="Prisma commercial pilot" loading="lazy" allow="fullscreen"></iframe>
+</section>
+</main>
+
+<div class="ov" id="ov"><div class="modal" id="modal"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const KEY = 'ha-commercial-outreach-v1';
+const DAY = 864e5;
+const STAGES = [
+  { id: 'id', name: 'Identified', ic: '🔍' },
+  { id: 'contacted', name: 'Contacted', ic: '📨' },
+  { id: 'engaged', name: 'Talking', ic: '💬' },
+  { id: 'claimed', name: 'Portal claimed', ic: '🔑' },
+  { id: 'won', name: 'Won · job or plan', ic: '🏆' },
+];
+const ROLES = { 'Building owner': 30, 'Portfolio manager': 30, 'Regional maintenance manager': 28, 'Property manager': 20, 'Facilities coordinator': 8, 'Tenant / on-site staff': 0 };
+const DECIDERS = ['Building owner', 'Portfolio manager', 'Regional maintenance manager', 'Property manager'];
+const SEGS = { 'Existing HA customer (landlord/PM)': 25, 'Small leased building (≤25k sf)': 22, 'Owner-occupied small business': 15, 'Restaurant / food service': 10, 'Large / Class A': 0 };
+const SOURCES = { 'Tech visit': 20, Referral: 15, 'IREM / BOMA chapter': 10, Webinar: 10, 'Outbound email / LinkedIn': 5 };
+const METROS = ['Los Angeles', 'Orange County', 'SF Bay Area', 'Seattle', 'Chicago', 'Denver', 'Phoenix / Scottsdale', 'Washington DC metro'];
+const CHANNELS = [
+  { id: 'tech', name: 'Tech leave-behind text' },
+  { id: 'email', name: 'Email' },
+  { id: 'li', name: 'LinkedIn' },
+  { id: 'call', name: 'Call script' },
+  { id: 'dm', name: 'Find the decision maker' },
+];
+const today = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d.getTime(); };
+const iso = (t) => new Date(t).toISOString().slice(0, 10);
+const fmt = (t) => new Date(t + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+
+function seed() {
+  const t = today();
+  const P = (o) => ({ id: 'p' + Math.random().toString(36).slice(2, 8), log: [], ...o });
+  return [
+    P({ company: 'Westside Commons LLC', name: 'Dana Whitfield', role: 'Property manager', seg: 'Existing HA customer (landlord/PM)', metro: 'Los Angeles', buildings: 3, source: 'Tech visit', stage: 'claimed', next: iso(t + 2 * DAY), phone: '(310) 555-0144', email: 'dana@westsidecommons.example', equip: 'two rooftop HVAC units (2011)', due: 'March', notes: 'Strip center, 9 suites. Claimed portal after HVAC repair.', log: [{ t: iso(t - 9 * DAY), m: 'Tech profile: 2 RTUs, water heater, panel' }, { t: iso(t - 7 * DAY), m: 'Claimed the portal' }] }),
+    P({ company: 'Harbor Gateway Dental', name: 'Dr. Priya Raman', role: 'Building owner', seg: 'Owner-occupied small business', metro: 'Orange County', buildings: 1, source: 'Tech visit', stage: 'contacted', next: iso(t), phone: '(714) 555-0162', email: 'office@harborgatewaydental.example', equip: 'split system and tankless water heater', due: 'January', notes: 'Owns the building; plumbing call last week.', log: [{ t: iso(t - 3 * DAY), m: 'Tech leave-behind text sent' }] }),
+    P({ company: 'Summit Ridge Property Group', name: 'Marcus Lee', role: 'Regional maintenance manager', seg: 'Small leased building (≤25k sf)', metro: 'Seattle', buildings: 14, source: 'IREM / BOMA chapter', stage: 'engaged', next: iso(t + 1 * DAY), phone: '(206) 555-0118', email: 'mlee@summitridgepg.example', equip: '', due: '', notes: 'Met at IREM breakfast. Wants a free audit of 2 buildings first.', log: [{ t: iso(t - 12 * DAY), m: 'Met at IREM chapter breakfast' }, { t: iso(t - 5 * DAY), m: 'Email touch 2 sent' }] }),
+    P({ company: 'Lakeview Flex Park', name: 'Jordan Kim', role: 'Facilities coordinator', seg: 'Small leased building (≤25k sf)', metro: 'Chicago', buildings: 4, source: 'Tech visit', stage: 'id', next: iso(t - 1 * DAY), phone: '(312) 555-0109', email: 'jkim@lakeviewflex.example', equip: 'unit heaters in suites B and D', due: 'December', notes: 'Booked the repair; says "my boss handles vendors".', log: [] }),
+    P({ company: 'Mesa Verde Retail Partners', name: 'Alicia Gomez', role: 'Portfolio manager', seg: 'Small leased building (≤25k sf)', metro: 'Phoenix / Scottsdale', buildings: 22, source: 'Outbound email / LinkedIn', stage: 'contacted', next: iso(t + 3 * DAY), phone: '', email: 'agomez@mesaverderp.example', equip: '', due: '', notes: '22 neighborhood centers. LinkedIn connect accepted.', log: [{ t: iso(t - 4 * DAY), m: 'LinkedIn touch 1 sent' }] }),
+    P({ company: 'Capitol Row Offices', name: 'Sam Patel', role: 'Tenant / on-site staff', seg: 'Small leased building (≤25k sf)', metro: 'Washington DC metro', buildings: 1, source: 'Tech visit', stage: 'id', next: iso(t), phone: '', email: '', equip: 'breakroom appliances', due: '', notes: 'Office admin for a tenant. Need the building manager.', log: [] }),
+    P({ company: 'Front Range Bistro Group', name: 'Elena Brooks', role: 'Building owner', seg: 'Restaurant / food service', metro: 'Denver', buildings: 3, source: 'Referral', stage: 'won', next: iso(t + 14 * DAY), phone: '(303) 555-0187', email: 'elena@frontrangebistro.example', equip: 'make-up air and two water heaters', due: 'April', notes: 'Bought preventive plan for 3 locations.', log: [{ t: iso(t - 20 * DAY), m: 'Referral from Westside Commons' }, { t: iso(t - 6 * DAY), m: 'Preventive plan sold, 3 sites' }] }),
+    P({ company: 'Bayview Medical Suites', name: 'Chris Nolan', role: 'Property manager', seg: 'Small leased building (≤25k sf)', metro: 'SF Bay Area', buildings: 2, source: 'Webinar', stage: 'engaged', next: iso(t + 5 * DAY), phone: '(415) 555-0133', email: 'cnolan@bayviewmed.example', equip: '', due: '', notes: 'Attended the building health webinar. Asked about COI limits.', log: [{ t: iso(t - 8 * DAY), m: 'Attended webinar' }] }),
+  ];
+}
+let S = load();
+function load() { try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && s.p) return s; } catch (e) {} return { p: seed(), f: null }; }
+function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+function toast(m) { const t = $('#toast'); t.textContent = m; t.classList.add('on'); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('on'), 2000); }
+
+function score(p) { return Math.min(100, (ROLES[p.role] ?? 0) + (SEGS[p.seg] ?? 0) + Math.min(25, (+p.buildings || 0) * 5) + (SOURCES[p.source] ?? 0)); }
+const heat = (s) => (s >= 70 ? ['hot', 'Hot'] : s >= 45 ? ['warm', 'Warm'] : ['cold', 'Cold']);
+const isDM = (p) => DECIDERS.includes(p.role);
+
+// ---------------- tabs
+let view = 'plan';
+$('#tabs').onclick = (e) => { const b = e.target.closest('button'); if (!b) return; show(b.dataset.v); };
+function show(v) { view = v; document.querySelectorAll('#tabs button').forEach((b) => b.classList.toggle('on', b.dataset.v === v)); document.querySelectorAll('.view').forEach((x) => x.classList.toggle('on', x.id === 'v-' + v)); render(); }
+
+// ---------------- prospects
+const opt = (arr, sel, all) => (all ? `<option value="">${all}</option>` : '') + arr.map((x) => `<option ${x === sel ? 'selected' : ''}>${esc(x)}</option>`).join('');
+$('#fMetro').innerHTML = opt(METROS, '', 'All metros'); $('#fSeg').innerHTML = opt(Object.keys(SEGS), '', 'All segments');
+['#q', '#fMetro', '#fSeg', '#fDue'].forEach((s) => ($(s).oninput = renderBoard));
+function filtered() {
+  const q = $('#q').value.toLowerCase(), m = $('#fMetro').value, sg = $('#fSeg').value, due = $('#fDue').checked;
+  return S.p.filter((p) => (!q || [p.company, p.name, p.metro, p.notes].join(' ').toLowerCase().includes(q)) && (!m || p.metro === m) && (!sg || p.seg === sg) && (!due || (p.next && Date.parse(p.next + 'T00:00') <= today())));
+}
+function renderBoard() {
+  const L = filtered();
+  const dm = S.p.filter(isDM).length, bld = S.p.reduce((a, p) => a + (+p.buildings || 0), 0);
+  const claimed = S.p.filter((p) => ['claimed', 'won'].includes(p.stage)).length;
+  const dueN = S.p.filter((p) => p.stage !== 'won' && p.next && Date.parse(p.next + 'T00:00') <= today()).length;
+  $('#kpis').innerHTML = [
+    ['Contacts', S.p.length, `${bld} buildings`],
+    ['Decision makers', dm, `${S.p.length - dm} influencers to work past`],
+    ['Portals claimed', claimed, `${Math.round((claimed / Math.max(1, S.p.length)) * 100)}% of contacts`],
+    ['Won', S.p.filter((p) => p.stage === 'won').length, 'second job or plan'],
+    ['Touches due', dueN, 'today or overdue'],
+  ].map(([a, b, c]) => `<div class="card stat"><span class="tag">${a}</span><b>${b}</b><span>${c}</span></div>`).join('');
+  $('#board').innerHTML = STAGES.map((st) => {
+    const cards = L.filter((p) => p.stage === st.id).sort((a, b) => score(b) - score(a));
+    return `<div class="col"><h4><span>${st.ic} ${st.name}</span><span>${cards.length}</span></h4>${cards.map(card).join('') || '<div class="due" style="padding:6px">Nothing here yet</div>'}</div>`;
+  }).join('');
+}
+function card(p) {
+  const s = score(p), [c, l] = heat(s), late = p.next && Date.parse(p.next + 'T00:00') <= today() && p.stage !== 'won';
+  return `<div class="pc" data-id="${p.id}"><b>${esc(p.company)}</b><div class="who">${esc(p.name)} · ${esc(p.role)}</div>
+    <div class="row"><span class="score ${c}">${s} ${l}</span><span class="pill">${esc(p.metro)}</span><span class="pill">${p.buildings || 0} bldg</span></div>
+    ${!isDM(p) ? '<div class="dmflag" style="margin-top:6px">⚠ Not the decision maker: ask who approves vendors</div>' : ''}
+    ${p.next ? `<div class="due ${late ? 'late' : ''}" style="margin-top:5px">Next touch: ${late ? 'due ' : ''}${fmt(p.next)}</div>` : ''}</div>`;
+}
+$('#board').onclick = (e) => { const c = e.target.closest('.pc'); if (c) openP(c.dataset.id); };
+$('#add').onclick = () => openP(null);
+let DL = null; try { window.claude?.use?.('downloads').then((d) => (DL = d), () => {}); } catch (e) {}
+$('#exp').onclick = () => {
+  const cols = ['company', 'name', 'role', 'seg', 'metro', 'buildings', 'source', 'stage', 'next', 'phone', 'email', 'notes'];
+  const rows = [cols.concat('score')].concat(S.p.map((p) => cols.map((k) => p[k] ?? '').concat(score(p))));
+  const csv = rows.map((r) => r.map((v) => `"${String(v).replace(/"/g, '""')}"`).join(',')).join('\n');
+  if (!DL) { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' })); a.download = 'decision-makers.csv'; a.click(); toast('CSV exported'); return; }
+  DL.save({ filename: 'decision-makers.csv', data: csv }).then(() => toast('CSV exported'), () => toast('Export cancelled'));
+};
+
+function openP(id, preset) {
+  const p = id ? S.p.find((x) => x.id === id) : { id: null, company: '', name: '', role: 'Property manager', seg: 'Small leased building (≤25k sf)', metro: METROS[0], buildings: 1, source: 'Tech visit', stage: 'id', next: iso(today() + DAY), phone: '', email: '', equip: '', due: '', notes: '', log: [], ...(preset || {}) };
+  const s = score(p), [c, l] = heat(s), i = STAGES.findIndex((x) => x.id === p.stage);
+  $('#modal').innerHTML = `<div style="display:flex;gap:10px;align-items:center"><h3>${id ? esc(p.company) : 'New contact'}</h3>${id ? `<span class="score ${c}">${s} ${l}</span>` : ''}<span style="flex:1"></span>${id ? `<span class="pill ind">${STAGES[i].ic} ${STAGES[i].name}</span>` : ''}</div>
+    ${id && !isDM(p) ? `<div class="hint">⚠ <b>${esc(p.name)}</b> is an influencer, not the buyer. Ask: <i>"Who approves vendors for this building, and who handles your other properties?"</i> <button class="btn sm" id="addDM" style="margin-left:6px">+ Add the decision maker</button></div>` : ''}
+    <div class="fg">
+      <label>Company<input class="inp" id="f_company" value="${esc(p.company)}"></label>
+      <label>Contact name<input class="inp" id="f_name" value="${esc(p.name)}"></label>
+      <label>Role<select class="inp" id="f_role">${opt(Object.keys(ROLES), p.role)}</select></label>
+      <label>Segment<select class="inp" id="f_seg">${opt(Object.keys(SEGS), p.seg)}</select></label>
+      <label>Metro<select class="inp" id="f_metro">${opt(METROS, p.metro)}</select></label>
+      <label>Buildings they manage<input class="inp" id="f_buildings" type="number" min="0" value="${esc(p.buildings)}"></label>
+      <label>Source<select class="inp" id="f_source">${opt(Object.keys(SOURCES), p.source)}</select></label>
+      <label>Stage<select class="inp" id="f_stage">${STAGES.map((x) => `<option value="${x.id}" ${x.id === p.stage ? 'selected' : ''}>${x.name}</option>`).join('')}</select></label>
+      <label>Phone<input class="inp" id="f_phone" value="${esc(p.phone)}"></label>
+      <label>Email<input class="inp" id="f_email" value="${esc(p.email)}"></label>
+      <label>Equipment the tech logged<input class="inp" id="f_equip" value="${esc(p.equip)}" placeholder="e.g. two rooftop HVAC units (2011)"></label>
+      <label>Next service due (month)<input class="inp" id="f_due" value="${esc(p.due)}" placeholder="e.g. March"></label>
+      <label>Next touch<input class="inp" id="f_next" type="date" value="${esc(p.next)}"></label>
+      <label class="full">Notes<textarea class="inp" id="f_notes" style="min-height:64px">${esc(p.notes)}</textarea></label>
+    </div>
+    ${id ? `<div style="margin-top:12px;font-size:12px;font-weight:700;color:var(--mut)">ACTIVITY</div><div class="log">${p.log.slice().reverse().map((x) => `<div><b>${fmt(x.t)}</b> · ${esc(x.m)}</div>`).join('') || '<div>No activity yet</div>'}</div>` : ''}
+    <div class="foot">${id ? '<button class="btn" id="del" style="color:var(--bad)">Delete</button>' : ''}<span class="sp"></span>
+      ${id && i > 0 ? '<button class="btn" id="back">← Stage</button>' : ''}${id && i < STAGES.length - 1 ? '<button class="btn" id="fwd">Stage →</button>' : ''}
+      ${id ? '<button class="btn gold" id="write">✉️ Write message</button>' : ''}
+      <button class="btn" id="cancel">Cancel</button><button class="btn pri" id="saveP">Save</button></div>`;
+  $('#ov').classList.add('on');
+  const read = () => { ['company', 'name', 'role', 'seg', 'metro', 'buildings', 'source', 'stage', 'phone', 'email', 'equip', 'due', 'next', 'notes'].forEach((k) => (p[k] = $('#f_' + k).value)); p.buildings = +p.buildings || 0; };
+  const commit = () => { read(); if (!p.company.trim()) { toast('Add a company name'); return false; } if (!p.id) { p.id = 'p' + Date.now().toString(36); S.p.push(p); p.log.push({ t: iso(today()), m: 'Added via ' + p.source }); } save(); render(); return true; };
+  $('#cancel').onclick = close; $('#saveP').onclick = () => { if (commit()) { close(); toast('Saved'); } };
+  if (id) {
+    $('#del').onclick = () => { S.p = S.p.filter((x) => x.id !== id); save(); close(); render(); toast('Deleted'); };
+    if ($('#fwd')) $('#fwd').onclick = () => { read(); p.stage = STAGES[i + 1].id; p.log.push({ t: iso(today()), m: 'Moved to ' + STAGES[i + 1].name }); save(); render(); openP(id); };
+    if ($('#back')) $('#back').onclick = () => { read(); p.stage = STAGES[i - 1].id; save(); render(); openP(id); };
+    $('#write').onclick = () => { if (commit()) { close(); M.pid = id; M.ch = isDM(p) ? (p.source === 'Tech visit' ? 'tech' : 'email') : 'dm'; show('messages'); } };
+    if ($('#addDM')) $('#addDM').onclick = () => { read(); save(); openP(null, { company: p.company, seg: p.seg, metro: p.metro, buildings: p.buildings, source: 'Referral', equip: p.equip, due: p.due, notes: `Referred by ${p.name} (${p.role}).`, role: 'Property manager', name: '' }); };
+  }
+}
+function close() { $('#ov').classList.remove('on'); }
+$('#ov').onclick = (e) => { if (e.target.id === 'ov') close(); };
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+
+// ---------------- messages
+const M = { pid: null, ch: 'tech', t: 1 };
+const first = (n) => (/^Dr\.?\s/.test(n || '') ? n : String(n || 'there').split(' ')[0]);
+function tpl(p, ch, t) {
+  const N = first(p.name), C = p.company || 'your building', E = p.equip || 'the main systems', D = p.due ? ` The next service is due in ${p.due}.` : '', B = +p.buildings > 1 ? `all ${p.buildings} of your buildings` : 'your other buildings';
+  const T = {
+    tech: {
+      1: ['', `Hi ${N}, this is Home Alliance. Thanks for having our tech at ${C} today. We logged ${E} with photos and condition notes.${D} Your free building report is ready: [claim link]. Reply STOP to opt out.`],
+      2: ['', `Hi ${N}, quick reminder: the equipment report for ${C} is waiting for you. It shows what's installed, its age, and what's coming due. Claim it here: [claim link]`],
+      3: ['', `Hi ${N}, want us to log ${B} the same way? Our techs can profile them on their next visit at no charge. Reply YES and we'll set it up.`],
+      4: ['', `Hi ${N}, ${E} at ${C} is coming up for service.${D} Book a time in one tap: [booking link]`],
+      5: ['', `Hi ${N}, last note from us on the building report for ${C}. If someone else handles vendors for your properties, reply with their name and we'll send it to them instead.`],
+    },
+    email: {
+      1: [`Your free equipment report for ${C}`, `Hi ${N},\n\nOur technician was at ${C} recently and logged ${E}, with photos, condition and service dates.${D}\n\nWe've put it in a free maintenance hub you can claim in one click: [claim link]\n\nIt keeps every building's equipment, work orders and due dates in one place, filled in by our techs on each visit. No setup and no cost.\n\nBest,\n[Your name]\nHome Alliance`],
+      2: [`One place for ${B}`, `Hi ${N},\n\nMost managers we work with track equipment in spreadsheets, or not at all, until something fails.\n\nOur free hub fixes that for ${B}: our techs log each system on their next visit, and you see what's aging and what's due, across every property.\n\nWould a free walk-through of one or two buildings be useful? I can book it this week.\n\n[Your name]\nHome Alliance`],
+      3: [`What's coming due at ${C}`, `Hi ${N},\n\nA quick heads-up: based on our tech's notes, ${E} at ${C} will need attention soon.${D}\n\nPreventive service now usually costs less than an emergency call later. Want me to hold a slot? [booking link]\n\n[Your name]`],
+      4: [`Licensed, insured, one call for HVAC, plumbing and electrical`, `Hi ${N},\n\nIn case it helps with your vendor list: Home Alliance covers HVAC, plumbing, electrical, appliances and air ducts with our own licensed technicians, same-day where possible. We can send our certificate of insurance today.\n\nShould I add you to our commercial priority list for ${C}?\n\n[Your name]`],
+      5: [`Should I close the loop?`, `Hi ${N},\n\nI haven't heard back, so I'll assume the timing isn't right. If someone else manages vendors for ${C}, could you point me to them?\n\nYour building report stays free and available here: [claim link]\n\nThanks,\n[Your name]`],
+    },
+    li: {
+      1: ['', `Hi ${N}, I work with property managers in ${p.metro} on maintenance. We offer a free hub where our techs log every building's equipment and due dates. Thought it might be useful for ${C}. Happy to connect.`],
+      2: ['', `Thanks for connecting, ${N}. Would a free equipment profile of one of your buildings be useful? Our tech does it on site, and you get a report showing what's aging and what's due. No commitment.`],
+      3: ['', `${N}, we just ran a "building health" session for local managers on cutting emergency calls with preventive schedules. Happy to send the recording if useful.`],
+      4: ['', `Hi ${N}, a quick question: who handles the approved-vendor list for your properties? I'd like to send them our free maintenance hub.`],
+      5: ['', `Last note, ${N}. If maintenance vendors ever come up for ${C}, I'm here. Good luck this quarter!`],
+    },
+    call: {
+      1: ['', `OPENER\nHi ${N}, this is [name] from Home Alliance. Our technician was at ${C} recently. Got 30 seconds?\n\nWHY\nThey logged ${E} with photos and condition, and we put it in a free report for you.${D}\n\nASK\nWho should get it: you, or whoever approves maintenance vendors?\n\nIF INTERESTED\nI'll text you the link now. Want us to profile ${B} on our next visits, free?\n\nIF NOT THE RIGHT PERSON\nWho approves vendors for this building? Could you share their email?`],
+      2: ['', `FOLLOW-UP CALL\nHi ${N}, it's [name] from Home Alliance, following up on the building report for ${C}. Did you get a chance to open it?\n\nIF YES: What would make it more useful? Should we add your other properties?\nIF NO: No problem. Can I walk you through it in 2 minutes now?\n\nCLOSE\nBook the free profile for the next building.`],
+      3: ['', `OBJECTIONS\n"We already have vendors." Great, keep them. The hub is free and shows what's due, whoever does the work.\n"Send me info." Sure. Who else should see it?\n"Insurance / COI?" We'll send our certificate today.\n"Budget." The report is free; preventive service usually costs less than emergency calls.`],
+      4: ['', `VOICEMAIL\nHi ${N}, [name] from Home Alliance. Your free equipment report for ${C} is ready. I'll text you the link. Call me back at [number] if you'd like us to add your other buildings.`],
+      5: ['', `BREAKUP CALL\nHi ${N}, [name] from Home Alliance. I'll stop chasing, but before I do: who's the best person for maintenance vendors at ${C}? Thanks!`],
+    },
+    dm: {
+      1: ['', `ON SITE (tech asks)\n"Who approves repairs and vendors for this building?"\n"Do they manage other properties too?"\n"What's the best email to send the equipment report to?"\n\nLog the answer as a new contact with role and email.`],
+      2: ['', `Hi ${N}, thanks for your help at ${C}. Who handles maintenance vendors for the building? We'd like to send them the free equipment report our tech put together.`],
+      3: [`Who manages vendors for ${C}?`, `Hi ${N},\n\nThanks again for your help when our technician visited ${C}. We prepared a free equipment report for the building.\n\nCould you point me to the person who manages maintenance vendors, so I can send it to them?\n\nThank you,\n[Your name]\nHome Alliance`],
+      4: ['', `Hi ${N}, one quick question: is the building owned by your company or managed by a property-management firm? Just want to get the report to the right person.`],
+      5: ['', `Thanks ${N}! Last ask: could you forward this link to whoever handles building maintenance? [claim link]`],
+    },
+  };
+  return T[ch][t];
+}
+const HINTS = {
+  tech: 'Sent automatically after the job. Best for warm contacts the tech just met. Keep it under 300 characters.',
+  email: 'Use for decision makers in PM firms. Space touches 3–4 days apart over two weeks.',
+  li: 'Best for portfolio and regional maintenance managers you haven\'t met. Connect first, pitch second.',
+  call: 'Call the warmest contacts within 48 hours of a tech visit, while the job is fresh.',
+  dm: 'Use when you\'re talking to a coordinator, tenant or on-site staff. The only goal is the decision maker\'s name and email.',
+};
+function renderMsg() {
+  if (!M.pid || !S.p.find((p) => p.id === M.pid)) M.pid = S.p[0]?.id;
+  $('#mP').innerHTML = S.p.map((p) => `<option value="${p.id}" ${p.id === M.pid ? 'selected' : ''}>${esc(p.company)} · ${esc(p.name)}</option>`).join('');
+  $('#mCh').innerHTML = CHANNELS.map((c) => `<button class="chip ${c.id === M.ch ? 'on' : ''}" data-c="${c.id}">${c.name}</button>`).join('');
+  $('#mT').innerHTML = [1, 2, 3, 4, 5].map((n) => `<button class="chip ${n === M.t ? 'on' : ''}" data-t="${n}">Touch ${n}</button>`).join('');
+  const p = S.p.find((x) => x.id === M.pid) || {};
+  const warn = p.role && !isDM(p) && M.ch !== 'dm' ? `<br><br>⚠ <b>${esc(p.name)}</b> is a ${esc(p.role.toLowerCase())}. Use <b>Find the decision maker</b> first.` : '';
+  $('#mHint').innerHTML = HINTS[M.ch] + warn;
+  const [sub, body] = tpl(p, M.ch, M.t);
+  $('#mSubj').style.display = sub ? '' : 'none'; $('#mSubj').value = sub; $('#mBody').value = body;
+  $('#mTitle').textContent = `${CHANNELS.find((c) => c.id === M.ch).name} · touch ${M.t}`;
+}
+$('#mP').onchange = (e) => { M.pid = e.target.value; renderMsg(); };
+$('#mCh').onclick = (e) => { const b = e.target.closest('[data-c]'); if (b) { M.ch = b.dataset.c; renderMsg(); } };
+$('#mT').onclick = (e) => { const b = e.target.closest('[data-t]'); if (b) { M.t = +b.dataset.t; renderMsg(); } };
+$('#mCopy').onclick = async () => { const txt = ($('#mSubj').value ? 'Subject: ' + $('#mSubj').value + '\n\n' : '') + $('#mBody').value; try { await navigator.clipboard.writeText(txt); toast('Copied'); } catch (e) { $('#mBody').select(); document.execCommand('copy'); toast('Copied'); } };
+$('#mLog').onclick = () => {
+  const p = S.p.find((x) => x.id === M.pid); if (!p) return;
+  p.log.push({ t: iso(today()), m: `${CHANNELS.find((c) => c.id === M.ch).name} · touch ${M.t} sent` });
+  if (p.stage === 'id') p.stage = 'contacted';
+  p.next = iso(today() + (M.ch === 'tech' ? 2 : 3) * DAY);
+  save(); toast(`Logged. Next touch ${fmt(p.next)}`); if (M.t < 5) M.t++; renderMsg();
+};
+
+// ---------------- funnel
+const FDEF = { visits: 600, profile: 75, claim: 30, job: 40, plan: 15, jobUsd: 450, planUsd: 1200 };
+const SL = [
+  ['visits', 'Commercial / landlord sites visited', 50, 3000, 50, (v) => v.toLocaleString('en-US')],
+  ['profile', 'Profiles completed', 20, 100, 5, (v) => v + '%'],
+  ['claim', 'Portals claimed (of profiles)', 5, 80, 1, (v) => v + '%'],
+  ['job', 'Second job in 90 days (of claimed)', 5, 90, 1, (v) => v + '%'],
+  ['plan', 'Preventive plan (of claimed)', 0, 60, 1, (v) => v + '%'],
+  ['jobUsd', 'Average ticket per job ($, replace)', 100, 3000, 50, (v) => '$' + v.toLocaleString('en-US')],
+  ['planUsd', 'Plan value per year ($, replace)', 200, 6000, 100, (v) => '$' + v.toLocaleString('en-US')],
+];
+function renderFunnel() {
+  const F = (S.f = S.f || { ...FDEF });
+  $('#sliders').innerHTML = SL.map(([k, l, mn, mx, st, f]) => `<label>${l}<span id="sv_${k}">${f(F[k])}</span></label><input type="range" min="${mn}" max="${mx}" step="${st}" value="${F[k]}" data-k="${k}">`).join('') + '<button class="btn sm" id="fReset" style="margin-top:12px">Reset defaults</button>';
+  drawFunnel();
+}
+function drawFunnel() {
+  const F = S.f, prof = Math.round((F.visits * F.profile) / 100), cl = Math.round((prof * F.claim) / 100), jb = Math.round((cl * F.job) / 100), pl = Math.round((cl * F.plan) / 100);
+  const st = [['Sites visited', F.visits, ''], ['Building profiles', prof, F.profile + '% of visits'], ['Portals claimed', cl, F.claim + '% of profiles', 1], ['Second job booked', jb, F.job + '% of claimed'], ['Preventive plan sold', pl, F.plan + '% of claimed']];
+  $('#fun').innerHTML = st.map(([l, v, sub, key]) => `<div class="fstage ${key ? 'key' : ''}"><div class="lbl">${l}</div><div class="track"><div class="fill" style="width:${Math.max(0.6, (v / F.visits) * 100)}%"></div></div><div class="v">${v.toLocaleString('en-US')}<small>${sub}</small></div></div>`).join('');
+  $('#fTitle').textContent = `${F.visits.toLocaleString('en-US')} visits → ${cl} claimed portals → ${jb} repeat jobs`;
+  const rev = jb * F.jobUsd, arr = pl * F.planUsd;
+  $('#fMoney').innerHTML = [['Repeat-job revenue', '$' + rev.toLocaleString('en-US'), 'in 90 days'], ['Plan revenue', '$' + arr.toLocaleString('en-US'), 'per year, recurring'], ['Buildings in the registry', prof.toLocaleString('en-US'), 'data asset we keep']].map(([a, b, c]) => `<div class="card stat" style="background:#f7f8fc"><span class="tag">${a}</span><b>${b}</b><span>${c}</span></div>`).join('');
+  const G = [[F.profile >= 75, 'Profile completion ≥ 75%', 'Techs are capturing data'], [F.claim >= 30, 'Claim rate ≥ 30%', 'The gift is valued: OK to fund outbound'], [F.job >= 40, 'Second job ≥ 40% of claimed', 'The tool drives revenue'], [F.plan >= 15, 'Plan attach ≥ 15%', 'Recurring revenue works']];
+  $('#gates').innerHTML = G.map(([ok, t, s]) => `<div class="gate"><span class="pill ${ok ? 'ok' : 'bad'}">${ok ? 'GO' : 'FIX'}</span><div><b>${t}</b><div class="due">${s}</div></div></div>`).join('');
+}
+$('#sliders').oninput = (e) => { const k = e.target.dataset.k; if (!k) return; S.f[k] = +e.target.value; $('#sv_' + k).textContent = SL.find((x) => x[0] === k)[5](S.f[k]); drawFunnel(); save(); };
+$('#sliders').onclick = (e) => { if (e.target.id === 'fReset') { S.f = { ...FDEF }; save(); renderFunnel(); } };
+
+$('#toolReload').onclick = () => { $('#toolFrame').src = 'tool.html'; };
+$('#toolFull').onclick = () => { const f = $('#toolFrame'); (f.requestFullscreen ? f.requestFullscreen() : Promise.reject()).catch(() => toast('Full screen is not available here')); };
+function render() { if (view === 'tool' && !$('#toolFrame').getAttribute('src')) $('#toolFrame').src = 'tool.html'; if (view === 'prospects') renderBoard(); if (view === 'messages') renderMsg(); if (view === 'funnel') renderFunnel(); }
+render();
+</script>
+</body>
+</html>
